@@ -1,6 +1,0 @@
--c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\Application\inc -I..\Libraries\CMSIS\CM3\CoreSupport -I..\Libraries\STM32F10x_StdPeriph_Driver\inc -I..\Libraries\FatFs_R0.08b -I..\Libraries\CMSIS\startup -I..\Libraries\CMSIS\CM3\DeviceSupport -I..\Libraries\ini\dev
--I C:\Keil\ARM\RV31\INC
--I C:\Keil\ARM\CMSIS\Include
--I C:\Keil\ARM\Inc\ST\STM32F10x
--DUSE_STDPERIPH_DRIVER
--o .\obj\fifo_usart.o --omf_browse .\obj\fifo_usart.crf --depend .\obj\fifo_usart.d "..\Application\src\fifo_usart.c"
