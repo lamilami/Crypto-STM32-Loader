@@ -1,0 +1,325 @@
+diff --git a/ChibiOS_2.0.8/os/hal/platforms/STM32/adc_lld.h b/ChibiOS_2.0.8/os/hal/platforms/STM32/adc_lld.h
+index cf2d4d4..05be6be 100644
+--- a/ChibiOS_2.0.8/os/hal/platforms/STM32/adc_lld.h
++++ b/ChibiOS_2.0.8/os/hal/platforms/STM32/adc_lld.h
+@@ -238,26 +238,51 @@ typedef struct {
+ /* Driver macros.                                                            */
+ /*===========================================================================*/
+
++/**
++ * @brief   Number of channels in a conversion sequence.
++ */
+ #define ADC_SQR1_NUM_CH(n)      (((n) - 1) << 20)
+
+-#define ADC_SQR3_SQ0_N(n)       ((n) << 0)
+-#define ADC_SQR3_SQ1_N(n)       ((n) << 5)
+-#define ADC_SQR3_SQ2_N(n)       ((n) << 10)
+-#define ADC_SQR3_SQ3_N(n)       ((n) << 15)
+-#define ADC_SQR3_SQ4_N(n)       ((n) << 20)
+-#define ADC_SQR3_SQ5_N(n)       ((n) << 25)
+-
+-#define ADC_SQR2_SQ6_N(n)       ((n) << 0)
+-#define ADC_SQR2_SQ7_N(n)       ((n) << 5)
+-#define ADC_SQR2_SQ8_N(n)       ((n) << 10)
+-#define ADC_SQR2_SQ9_N(n)       ((n) << 15)
+-#define ADC_SQR2_SQ10_N(n)      ((n) << 20)
+-#define ADC_SQR2_SQ11_N(n)      ((n) << 25)
+-
+-#define ADC_SQR1_SQ13_N(n)      ((n) << 0)
+-#define ADC_SQR1_SQ14_N(n)      ((n) << 5)
+-#define ADC_SQR1_SQ15_N(n)      ((n) << 10)
+-#define ADC_SQR1_SQ16_N(n)      ((n) << 15)
++#define ADC_SQR3_SQ1_N(n)       ((n) << 0)  /**< @brief 1st channel in seq. */
++#define ADC_SQR3_SQ2_N(n)       ((n) << 5)  /**< @brief 2nd channel in seq. */
++#define ADC_SQR3_SQ3_N(n)       ((n) << 10) /**< @brief 3rd channel in seq. */
++#define ADC_SQR3_SQ4_N(n)       ((n) << 15) /**< @brief 4th channel in seq. */
++#define ADC_SQR3_SQ5_N(n)       ((n) << 20) /**< @brief 5th channel in seq. */
++#define ADC_SQR3_SQ6_N(n)       ((n) << 25) /**< @brief 6th channel in seq. */
++
++#define ADC_SQR2_SQ7_N(n)       ((n) << 0)  /**< @brief 7th channel in seq. */
++#define ADC_SQR2_SQ8_N(n)       ((n) << 5)  /**< @brief 8th channel in seq. */
++#define ADC_SQR2_SQ9_N(n)       ((n) << 10) /**< @brief 9th channel in seq. */
++#define ADC_SQR2_SQ10_N(n)      ((n) << 15) /**< @brief 10th channel in seq.*/
++#define ADC_SQR2_SQ11_N(n)      ((n) << 20) /**< @brief 11th channel in seq.*/
++#define ADC_SQR2_SQ12_N(n)      ((n) << 25) /**< @brief 12th channel in seq.*/
++
++#define ADC_SQR1_SQ13_N(n)      ((n) << 0)  /**< @brief 13th channel in seq.*/
++#define ADC_SQR1_SQ14_N(n)      ((n) << 5)  /**< @brief 14th channel in seq.*/
++#define ADC_SQR1_SQ15_N(n)      ((n) << 10) /**< @brief 15th channel in seq.*/
++#define ADC_SQR1_SQ16_N(n)      ((n) << 15) /**< @brief 16th channel in seq.*/
++
++#define ADC_SMPR2_SMP_AN0(n)    ((n) << 0)  /**< @brief AN0 sampling time.  */
++#define ADC_SMPR2_SMP_AN1(n)    ((n) << 3)  /**< @brief AN1 sampling time.  */
++#define ADC_SMPR2_SMP_AN2(n)    ((n) << 6)  /**< @brief AN2 sampling time.  */
++#define ADC_SMPR2_SMP_AN3(n)    ((n) << 9)  /**< @brief AN3 sampling time.  */
++#define ADC_SMPR2_SMP_AN4(n)    ((n) << 12) /**< @brief AN4 sampling time.  */
++#define ADC_SMPR2_SMP_AN5(n)    ((n) << 15) /**< @brief AN5 sampling time.  */
++#define ADC_SMPR2_SMP_AN6(n)    ((n) << 18) /**< @brief AN6 sampling time.  */
++#define ADC_SMPR2_SMP_AN7(n)    ((n) << 21) /**< @brief AN7 sampling time.  */
++#define ADC_SMPR2_SMP_AN8(n)    ((n) << 24) /**< @brief AN8 sampling time.  */
++#define ADC_SMPR2_SMP_AN9(n)    ((n) << 27) /**< @brief AN9 sampling time.  */
++
++#define ADC_SMPR1_SMP_AN10(n)   ((n) << 0)  /**< @brief AN10 sampling time. */
++#define ADC_SMPR1_SMP_AN11(n)   ((n) << 3)  /**< @brief AN11 sampling time. */
++#define ADC_SMPR1_SMP_AN12(n)   ((n) << 6)  /**< @brief AN12 sampling time. */
++#define ADC_SMPR1_SMP_AN13(n)   ((n) << 9)  /**< @brief AN13 sampling time. */
++#define ADC_SMPR1_SMP_AN14(n)   ((n) << 12) /**< @brief AN14 sampling time. */
++#define ADC_SMPR1_SMP_AN15(n)   ((n) << 15) /**< @brief AN15 sampling time. */
++#define ADC_SMPR1_SMP_SENSOR(n) ((n) << 18) /**< @brief Temperature Sensor
++                                                 sampling time.             */
++#define ADC_SMPR1_SMP_VREF(n)   ((n) << 21) /**< @brief Voltage Reference
++                                                 sampling time.             */
+
+ /*===========================================================================*/
+ /* External declarations.                                                    */
+diff --git a/boards/common/mcuconf-common.h b/boards/common/mcuconf-common.h
+index fd286e7..7f77139 100644
+--- a/boards/common/mcuconf-common.h
++++ b/boards/common/mcuconf-common.h
+@@ -41,7 +41,7 @@
+ /*
+  * ADC driver system settings.
+  */
+-#define USE_STM32_ADC1              FALSE
++#define USE_STM32_ADC1              TRUE
+ #define STM32_ADC1_DMA_PRIORITY     3
+ #define STM32_ADC1_IRQ_PRIORITY     5
+ #define STM32_ADC1_DMA_ERROR_HOOK() chSysHalt()
+diff --git a/src/chconf.h b/src/chconf.h
+index a729e95..b4d2ddd 100644
+--- a/src/chconf.h
++++ b/src/chconf.h
+@@ -10,7 +10,7 @@
+ #define CH_OPTIMIZE_SPEED               TRUE
+ #define CH_USE_REGISTRY                 TRUE
+ #define CH_USE_WAITEXIT                 TRUE
+-#define CH_USE_SEMAPHORES               FALSE
++#define CH_USE_SEMAPHORES               TRUE
+ #define CH_USE_SEMAPHORES_PRIORITY      FALSE
+ #define CH_USE_SEMSW                    FALSE
+ #define CH_USE_MUTEXES                  TRUE
+diff --git a/src/halconf.h b/src/halconf.h
+index 58f7cd1..7214d3d 100644
+--- a/src/halconf.h
++++ b/src/halconf.h
+@@ -6,7 +6,7 @@
+ #include "mcuconf.h"
+
+ #define CH_HAL_USE_PAL              TRUE
+-#define CH_HAL_USE_ADC              FALSE
++#define CH_HAL_USE_ADC              TRUE
+ #define CH_HAL_USE_CAN              FALSE
+ #define CH_HAL_USE_MAC              FALSE
+ #define CH_HAL_USE_PWM              FALSE
+diff --git a/src/main.c b/src/main.c
+index ddc0e35..1d62592 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -26,6 +26,7 @@
+ #include "usb_lib.h"
+
+ #include "ch.h"
++#include "hal.h"
+ #include "gnuk.h"
+ #include "usb_lld.h"
+ #include "usb_istr.h"
+@@ -194,8 +195,103 @@ device_initialize_once (void)
+     }
+ }
+
++
++Thread *main_thread;
++
++/* Total number of channels to be sampled by a single ADC operation.*/
++#define ADC_GRP1_NUM_CHANNELS   2
++
++/* Depth of the conversion buffer, channels are sampled one time each.*/
++#define ADC_GRP1_BUF_DEPTH      1
++
++/*
++ * ADC samples buffer.
++ */
++static adcsample_t samples[ADC_GRP1_NUM_CHANNELS * ADC_GRP1_BUF_DEPTH];
++
++#define ADC_SAMPLE_13P5         2   /**< @brief 13.5 cycles sampling time.  */
++#define ADC_SAMPLE_239P5        7   /**< @brief 239.5 cycles sampling time. */
++
++static void adccb (adcsample_t *buffer, size_t n);
++
++/*
++ * ADC conversion group.
++ * Mode:        Linear buffer, 1 samples of 2 channels, SW triggered.
++ * Channels:    Vref   (239.5 cycles sample time)
++ *              Sensor (239.5 cycles sample time)
++ */
++static const ADCConversionGroup adcgrpcfg = {
++  FALSE,
++  ADC_GRP1_NUM_CHANNELS,
++  0,
++  ADC_CR2_EXTSEL_SWSTART | ADC_CR2_TSVREFE | ADC_CR2_CONT,
++  ADC_SMPR1_SMP_SENSOR(0) | ADC_SMPR1_SMP_VREF(0),
++  0,
++  ADC_SQR1_NUM_CH(ADC_GRP1_NUM_CHANNELS),
++  0,
++  ADC_SQR3_SQ2_N(ADC_CHANNEL_SENSOR) | ADC_SQR3_SQ1_N(ADC_CHANNEL_VREFINT)
++};
++
++/*
++ * ADC end conversion callback.
++ */
++static void adccb (adcsample_t *buffer, size_t n)
++{
++  ADCDriver *adcp = &ADCD1;
++
++  (void) buffer; (void) n;
++
++  if (adcp->ad_state == ADC_COMPLETE)
++    {
++      chSysLockFromIsr();
++      chEvtSignalI (main_thread, (eventmask_t)1);
++      chSysUnlockFromIsr();
++    }
++}
++
+ static volatile uint8_t fatal_code;
+
++extern uint32_t w;
++
++#define TMT_MAT1 0x8f7011ee
++#define TMT_MAT2 0xfc78ff1f
++#define TMT_TMAT 0x3793fdff
++
++static uint32_t tmt[4];
++
++static void tmt_one_step (uint32_t v)
++{
++  uint32_t x, y;
++
++  y = tmt[3];
++  x = (tmt[0] & 0x7fffffff) ^ tmt[1] ^ tmt[2];
++  x ^= (x << 1);
++  y ^= (y >> 1) ^ x;
++  tmt[0] = tmt[1];
++  tmt[1] = tmt[2];
++  tmt[2] = x ^ (y << 10);
++  tmt[3] = y ^ v;
++  if ((y & 1))
++    {
++      tmt[1] ^= TMT_MAT1;
++      tmt[2] ^= TMT_MAT2;
++    }
++}
++
++static uint32_t tmt_value (void)
++{
++  uint32_t t0, t1;
++
++  t0 = tmt[3];
++  t1 = tmt[0] + (tmt[2] >> 8);
++  t0 ^= t1;
++  if ((t1 & 1))
++    t0 ^= TMT_TMAT;
++  return t0;
++}
++
++
++
+ /*
+  * Entry point.
+  *
+@@ -209,11 +305,15 @@ main (int argc, char **argv)
+
+   (void)argc;
+   (void)argv;
++  main_thread = chThdSelf ();
+
+   flash_unlock ();
+   device_initialize_once ();
+   usb_lld_init ();
+-  USB_Init();
++  USB_Init ();
++  adcStart (&ADCD1, NULL);
++
++  adcStartConversion (&ADCD1, &adcgrpcfg, samples, ADC_GRP1_BUF_DEPTH, adccb);
+
+ #ifdef DEBUG
+   stdout_init ();
+@@ -231,7 +331,7 @@ main (int argc, char **argv)
+   while (1)
+     {
+       count++;
+-
++#if 0
+       if (fatal_code != 0)
+      {
+        set_led (1);
+@@ -329,7 +429,6 @@ main (int argc, char **argv)
+              chThdSleep (LED_TIMEOUT_INTERVAL);
+            }
+        }
+-
+ #ifdef DEBUG_MORE
+       if (bDeviceState == CONFIGURED && (count % 10) == 0)
+      {
+@@ -339,6 +438,61 @@ main (int argc, char **argv)
+                "Hello world\r\n\r\n", 35+21+15);
+      }
+ #endif
++#else
++      {
++     eventmask_t m;
++
++     m = chEvtWaitOne (ALL_EVENTS);
++
++     if (m == (eventmask_t)1)
++       {
++         static uint8_t na[4];
++         static uint8_t n;
++         uint8_t tick = (SysTick->VAL & 0x1e) >> 1;
++         uint8_t nib = ((samples[0] & 0x03) | ((samples[1] & 0x03) << 2))
++           ^ ((tick & 1) << 3) ^ (tick & 4) ^ (tick & 2) ^ ((tick & 8) >> 3);
++
++         adcStartConversion (&ADCD1, &adcgrpcfg, samples,
++                             ADC_GRP1_BUF_DEPTH, adccb);
++
++         if ((n & 1))
++           na[n >> 1] |= (nib << 4);
++         else
++           na[n >> 1] = nib;
++         n = (n + 1) & 7;
++
++         if (n == 0)
++           {
++             static uint8_t two_from_three;
++             uint32_t t;
++#if 0
++             two_from_three = 0;
++             t = (na[3] << 24)|(na[2]<<16)|(na[1]<<8)|na[0];
++#else
++             /* Measurement of MUST (L=8): 5.5 bit/byte for raw bits */
++             tmt_one_step ((na[3] << 24)|(na[2]<<16)|(na[1]<<8)|na[0]);
++#endif
++             two_from_three++;
++             if (two_from_three >= 3)
++               /* skip the output */
++               two_from_three = 0;
++             else
++               {
++                 char s[32];
++                 static uint8_t r;
++
++#if 1
++                 t = tmt_value ();
++#endif
++                 memcpy (s + (r&7)*4, (const char *)&t, 4);
++                 r = (r + 1) & 7;
++                 if (r == 0 && bDeviceState == CONFIGURED)
++                   _write (s, 32);
++               }
++           }
++       }
++      }
++#endif
+     }
+
+   return 0;

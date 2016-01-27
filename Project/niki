@@ -1,0 +1,293 @@
+u8 sd_SetPassw(u8 * pass)
+{
+u8 rtry;
+u16 stat;
+u32 i;
+vu8 err;
+
+   restoreFlg |= SD_CARD_RESTORE;
+wait_valid_time:
+
+   powerFaultFlgs |= VALID_SD_CARD;
+
+   MSD_DeInit();
+   delay(100);
+
+    MSD_CS_HIGH();
+    MSD_ENABLE();
+
+   sd_raw_available();
+
+   if( (powerFaultFlgs & VALID_SD_CARD_INIT) == 0)
+   {
+      if(!MSD_Init(0))
+      {
+         restoreFlg &= ~SD_CARD_RESTORE;
+         MSD_DISABLE();
+           return(FALSE);
+      }
+      MSD_ENABLE();
+   }
+
+   err = 0;
+again:
+   if(!sd_raw_available())
+      goto wait_valid_time;
+
+   if(err > 5)
+   {
+      restoreFlg &= ~SD_CARD_RESTORE;
+      MSD_DISABLE();
+        return(FALSE);
+   }      
+
+   if(err > 2)
+   {
+      if(err == 3)
+      {
+         MSD_DeInit();
+         delay(100);
+      }
+      if(!MSD_Init(0))
+      {
+         restoreFlg &= ~SD_CARD_RESTORE;
+         MSD_DISABLE();
+           return(FALSE);
+      }
+      MSD_ENABLE();
+   }      
+   err++;
+
+   rtry= 0;
+   stat = MSD_GetStatus();
+   if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+   {
+      goto wait_valid_time;
+   }
+   while(stat & 0x0100)   
+   {   //Card is Locked
+      
+      MSD_CS_LOW();
+      if(sd_raw_send_command(CMD_SET_BLOCKLEN, 1))   
+      {
+         MSD_CS_HIGH();
+         if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+         {
+            goto wait_valid_time;
+         }
+
+         goto again;
+      }
+      if(sd_raw_send_command(CMD_LOCK_UNLOCK, 0))   
+      {
+         MSD_CS_HIGH();
+         if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+         {
+            goto wait_valid_time;
+         }
+
+         goto again;
+      }
+         /* send start byte */
+        txRxSDCard(0xfe);
+         /* write byte block */
+       txRxSDCard(0x08);   //Forse errase
+
+        /* write dummy crc16 */
+        txRxSDCard(0xff);
+        txRxSDCard(0xff);
+
+        /* wait while card is busy */
+       if(!sd_GetDataResponse())
+       {
+           MSD_CS_HIGH();
+         if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+         {
+            goto wait_valid_time;
+         }
+
+         goto again;
+       }
+        txRxSDCard(DUMMY);
+
+        /* deaddress card */
+        MSD_CS_HIGH();
+
+      if(!sd_raw_available())
+         goto wait_valid_time;
+
+      if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+      {
+         goto wait_valid_time;
+      }
+      if(rtry >3)
+      {
+         restoreFlg &= ~SD_CARD_RESTORE;
+         MSD_DISABLE();
+          return(FALSE);
+      }
+      rtry++;
+      stat = MSD_GetStatus();
+      if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+      {
+         goto wait_valid_time;
+      }
+   }
+   if(pass)
+   {
+      rtry= 0;
+      stat = 0x00;
+      if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+      {
+         goto wait_valid_time;
+      }
+      while((stat & 0x0100) != 0x0100)
+      {
+
+         MSD_CS_LOW();
+         if(sd_raw_send_command(CMD_SET_BLOCKLEN, 12))   
+         {
+            MSD_CS_HIGH();
+            if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+            {
+               goto wait_valid_time;
+            }
+
+            goto again;
+         }
+         if(sd_raw_send_command(CMD_LOCK_UNLOCK, 0))   
+         {
+            MSD_CS_HIGH();
+            if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+            {
+               goto wait_valid_time;
+            }
+
+            goto again;
+         }
+            /* send start byte */
+           txRxSDCard(0xfe);
+            /* write byte block */
+          txRxSDCard(0x05);   //Lock and Set Passw
+         txRxSDCard(10);    //Pass len
+         for(i = 0; i < 10; i++)
+         {
+             txRxSDCard(*pass++);   //Pass 
+         }
+
+           /* write dummy crc16 */
+           txRxSDCard(0xff);
+           txRxSDCard(0xff);
+
+           /* wait while card is busy */
+          if(!sd_GetDataResponse())
+          {
+              MSD_CS_HIGH();
+            if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+            {
+               goto wait_valid_time;
+            }
+
+            goto again;
+          }
+           txRxSDCard(DUMMY);
+
+           /* deaddress card */
+           MSD_CS_HIGH();
+         if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+         {
+            goto wait_valid_time;
+         }
+
+         if(!sd_raw_available())
+            goto wait_valid_time;
+
+         if(rtry >3)
+         {
+            restoreFlg &= ~SD_CARD_RESTORE;
+            MSD_DISABLE();
+            return(FALSE);
+         }
+         rtry++;
+         stat = MSD_GetStatus();
+            if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+         {
+            goto wait_valid_time;
+         }
+         if(stat & 0x0200)
+            goto again;
+
+      }
+      stat = MSD_GetStatus();
+      if(!sd_raw_available())
+         goto wait_valid_time;
+
+      if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+      {
+         goto wait_valid_time;
+      }
+      if(!(stat & 0x0100))
+      {
+         restoreFlg &= ~SD_CARD_RESTORE;
+         MSD_DISABLE();
+         return(FALSE);
+      }
+   }
+   restoreFlg &= ~SD_CARD_RESTORE;
+
+   if(!sd_raw_available())
+      goto wait_valid_time;
+
+   MSD_DISABLE();
+   return(TRUE);
+}
+
+u8 chkForCardLock(void)
+{
+u16 stat;
+
+   restoreFlg |= SD_CARD_RESTORE;
+wait_valid_time:
+
+   powerFaultFlgs |= VALID_SD_CARD;
+
+    MSD_CS_HIGH();
+   MSD_ENABLE();
+
+   sd_raw_available();
+
+   if( (powerFaultFlgs & VALID_SD_CARD_INIT) == 0)
+   {
+      if(!MSD_Init(0))
+      {
+         restoreFlg &= ~SD_CARD_RESTORE;
+         MSD_DISABLE();
+           return(TRUE);
+      }
+      MSD_ENABLE();
+   }
+
+   if(sd_raw_locked())
+   {
+      restoreFlg &= ~SD_CARD_RESTORE;
+      MSD_DISABLE();
+      return(TRUE);
+   }
+   stat = MSD_GetStatus();
+
+   if( (powerFaultFlgs & VALID_SD_CARD) == 0)
+   {
+      goto wait_valid_time;
+   }
+
+   if(!sd_raw_available())
+      goto wait_valid_time;
+
+   MSD_DISABLE();
+   restoreFlg &= ~SD_CARD_RESTORE;
+
+   if(stat & 0x0100)
+      return(TRUE);
+
+   return(FALSE);
+}

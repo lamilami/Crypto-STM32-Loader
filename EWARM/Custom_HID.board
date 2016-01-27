@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_board>
+  <pass>
+    <loader>$TOOLKIT_DIR$\config\flashloader\ST\FlashSTM32F10xxE.flash</loader>
+    <rel_offset>0x8000</rel_offset>
+  </pass>
+</flash_board>
+
+

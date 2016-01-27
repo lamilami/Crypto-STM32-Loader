@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Espada\Desktop\UART\uart.uvproj
+Project File Date:  11/10/2012
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling core_cm3.c...
+compiling system_LPC17xx.c...
+compiling uart.c...
+compiling main.c...
+aes.h(182): warning:  #1-D: last line of file ends without a newline
+aes.h:   #endif /* aes.h */
+aes.h:                     ^
+main.c(35): warning:  #1-D: last line of file ends without a newline
+main.c:   }
+main.c:    ^
+main.c(13): warning:  #177-D: variable "keysize" was declared but never referenced
+main.c:      unsigned int keysize=128   ;
+main.c:                   ^
+main.c(14): warning:  #177-D: variable "ctx" was declared but never referenced
+main.c:      aes_context ctx;
+main.c:                  ^
+main.c: main.c: 4 warnings, 0 errors
+compiling aes.c...
+aes.c(1349): warning:  #1-D: last line of file ends without a newline
+aes.c:   #endif
+aes.c:         ^
+aes.c: aes.c: 1 warning, 0 errors
+linking...
+Program Size: Code=1724 RO-data=236 RW-data=4 ZI-data=612  
+FromELF: creating hex file...
+"uart.axf" - 0 Error(s), 5 Warning(s).

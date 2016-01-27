@@ -1,0 +1,15 @@
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\library\x509read.c
+.\obj\x509read.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\x509read.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\x509read.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\x509read.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\x509.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\rsa.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\bignum.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\ssl_conf.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\base64.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\des.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\md2.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\md4.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\md5.h
+.\obj\x509read.o: ..\Libraries\tropicssl-tropicssl\include\xyssl\sha1.h

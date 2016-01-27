@@ -1,0 +1,4 @@
+--cpu Cortex-M3 "startup_lpc17xx.o" "core_cm3.o" "system_lpc17xx.o" "uart.o" "main.o" "aes.o" --strict --scatter "uart.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\uart.map" -o "uart.axf"

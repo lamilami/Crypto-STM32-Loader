@@ -1,0 +1,93 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.13.0.0
+Copyright (C) 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: g g, t, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.13.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.13.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.11.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+D:\MyWORK\STM32_DENKOV\FatFS-SPI-stm32f103\Project\Frame.uvprojx
+Project File Date:  03/10/2015
+
+<h2>Output:</h2>
+Build target 'stm32f103vc'
+assembling startup_stm32f10x_hd.s...
+compiling system_stm32f10x.c...
+compiling core_cm3.c...
+compiling main.c...
+..\Libraries\FatFSR0.11\integer.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Application\src\main.c: 1 warning, 0 errors
+compiling stm32f10x_it.c...
+compiling hardware_config.c...
+compiling stm_loader.c...
+..\Libraries\FatFSR0.11\integer.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Application\src\stm_loader.c: 1 warning, 0 errors
+compiling uart.c...
+..\Application\src\uart.c(258): warning:  #236-D: controlling expression is constant
+        if(UartPort){
+..\Application\src\uart.c(267): warning:  #236-D: controlling expression is constant
+        if(UartPort){
+..\Application\src\uart.c(275): warning:  #236-D: controlling expression is constant
+        if(UartPort){
+..\Application\src\uart.c: 3 warnings, 0 errors
+compiling card_utl.c...
+..\Libraries\FatFSR0.11\integer.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Application\src\card_utl.c: 1 warning, 0 errors
+compiling misc.c...
+compiling stm32f10x_rcc.c...
+compiling aes.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+compiling ff.c...
+..\Libraries\FatFSR0.11\integer.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Libraries\FatFSR0.11\ff.c(4635): warning:  #1-D: last line of file ends without a newline
+   
+..\Libraries\FatFSR0.11\ff.c: 2 warnings, 0 errors
+compiling mmc_32f1.c...
+..\Libraries\FatFSR0.11\integer.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Libraries\FatFSR0.11\mmc_32f1.c: 1 warning, 0 errors
+compiling minIni.c...
+..\Libraries\FatFSR0.11\integer.h(47): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Libraries\ini\dev\minIni.c: 1 warning, 0 errors
+linking...
+.\obj\Frame.axf: Error: L6218E: Undefined symbol EXTI_GetITStatus (referred from stm32f10x_it.o).
+.\obj\Frame.axf: Error: L6218E: Undefined symbol EXTI_Init (referred from hardware_config.o).
+.\obj\Frame.axf: Error: L6218E: Undefined symbol ff_convert (referred from ff.o).
+.\obj\Frame.axf: Error: L6218E: Undefined symbol ff_wtoupper (referred from ff.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 4 error messages.
+".\obj\Frame.axf" - 4 Error(s), 10 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\MyWORK\STM32_DENKOV\FatFS-SPI-stm32f103\Project\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+</pre>
+</body>
+</html>

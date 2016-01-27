@@ -1,0 +1,37 @@
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+aes/aescrypt2
+hash/hello
+hash/md5sum
+hash/sha1sum
+hash/sha2sum
+pkey/dh_client
+pkey/dh_genprime
+pkey/dh_server
+pkey/mpi_demo
+pkey/rsa_genkey
+pkey/rsa_sign
+pkey/rsa_verify
+ssl/ssl_client1
+ssl/ssl_client2
+ssl/ssl_server
+test/benchmark
+test/selftest
+test/ssl_test
+

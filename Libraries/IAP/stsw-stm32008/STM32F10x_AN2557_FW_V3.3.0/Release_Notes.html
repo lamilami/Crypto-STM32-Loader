@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="File-List" href="Release_Notes_files/filelist.xml">
+<link rel="Edit-Time-Data" href="Release_Notes_files/editdata.mso"><!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><title>Release Notes for AN2557 "STM32F10xxx in-application programming using the USART (IAP)" firmware</title><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>STMicroelectronics</o:Author>
+  <o:LastAuthor>Raouf Hosni</o:LastAuthor>
+  <o:Revision>40</o:Revision>
+  <o:TotalTime>139</o:TotalTime>
+  <o:Created>2009-02-27T19:26:00Z</o:Created>
+  <o:LastSaved>2009-07-28T09:49:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>574</o:Words>
+  <o:Characters>3276</o:Characters>
+  <o:Company>STMicroelectronics</o:Company>
+  <o:Lines>27</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>3843</o:CharactersWithSpaces>
+  <o:Version>11.8132</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>110</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+
+
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:932404;
+	mso-list-template-ids:1279303226;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:300157958;
+	mso-list-template-ids:-394728822;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:719862913;
+	mso-list-template-ids:-1364035806;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:887952539;
+	mso-list-template-ids:2096676902;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4
+	{mso-list-id:1147743546;
+	mso-list-template-ids:1967166292;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l5
+	{mso-list-id:1334839888;
+	mso-list-template-ids:-1199767792;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l6
+	{mso-list-id:1465544018;
+	mso-list-template-ids:1076789982;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l7
+	{mso-list-id:1508520418;
+	mso-list-template-ids:-1108947928;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8
+	{mso-list-id:1571887321;
+	mso-list-template-ids:531151312;}
+@list l9
+	{mso-list-id:1683822854;
+	mso-list-template-ids:1915670784;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l10
+	{mso-list-id:1876498443;
+	mso-list-template-ids:113813964;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l10:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="7170"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></head><body style="" lang="EN-US" link="blue" vlink="blue">
+
+<div class="Section1">
+
+<p class="MsoNormal"><span style="font-family: Arial;"><o:p>&nbsp;</o:p></span></p>
+
+<div align="center">
+
+<table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" cellspacing="0" width="900">
+ <tbody><tr style="">
+  <td style="padding: 0in;" valign="top">
+  <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" cellspacing="0" width="900">
+   <tbody><tr style="">
+    <td style="padding: 1.5pt;">
+    <h1 style="margin-bottom: 0.25in; text-align: center;" align="center"><span style="font-size: 20pt; font-family: Verdana; color: rgb(51, 102, 255);">Release Notes
+    for&nbsp;AN2557 "STM32F10xxx in-application programming using the
+    USART (IAP)" firmware</span><span style="font-size: 20pt; font-family: Verdana;"><o:p></o:p></span></h1>
+    <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 10pt; font-family: Arial; color: black;">Copyright&nbsp;2010
+    STMicroelectronics</span><span style="color: black;"><u1:p></u1:p><o:p></o:p></span></p>
+    <p class="MsoNormal" style="text-align: center;" align="center"><span style="font-size: 10pt; font-family: Arial; color: black;"><img id="_x0000_i1025" src="_htmresc/logo.bmp" style="border-style: solid; border-width: 0px; height: 65px; width: 86px;" height="65" width="86"></span><span style="font-size: 10pt;"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  <p class="MsoNormal"><span style="font-family: Arial; display: none;"><o:p>&nbsp;</o:p></span></p>
+  <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" width="900">
+   <tbody><tr style="">
+    <td style="padding: 0in;" valign="top">
+    <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><span style="font-size: 12pt; color: white;">Contents<o:p></o:p></span></h2>
+    <ol style="margin-top: 0in;" start="1" type="1">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;"><a href="#History">AN2557
+         "STM32F10xxx in-application programming using the USART (IAP)"
+         update History</a><o:p></o:p></span></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;"><a href="#License">License</a><o:p></o:p></span></li>
+    </ol>
+    <p class="MsoNormal" style="margin: 4.5pt 0in;"><span style="font-size: 10pt; font-family: Verdana; color: black;"><o:p>&nbsp;</o:p></span></p>
+    <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><a name="History"></a><span style="font-size: 12pt; color: white;">AN2557 "STM32F10xxx
+    in-application programming using the USART (IAP)" update History</span></h2><br>
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V3.3.0 - 10/15/2010<o:p></o:p></span></h3>
+
+    
+            <ul style="margin-top: 0in;" type="square">
+<li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update to support&nbsp;<b>STM32F10x High-density Value line</b>.&nbsp;</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update with <span style="font-style: italic; font-weight: bold;">STM32F10x Standard Peripherals Library V3.4.0</span></span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update with <span style="font-style: italic;"><span style="font-weight: bold;">Upload</span> FLASH Image capability.</span></span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Change the ApplicationAddress in common.h file from <span style="font-weight: bold; font-style: italic;">"0x08002000"</span> to "<span style="font-weight: bold; font-style: italic;">0x08003000</span>"</span></li>
+              <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Use the NVIC_SystemReset() to reload the option bytes instead of WWDG reset.<br>
+</span></li>
+
+            </ul>
+            
+
+    <p class="MsoNormal"><span style="color: black;"><o:p>&nbsp;</o:p></span></p><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V3.2.0 -&nbsp;04/23/2010<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square"><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update to support&nbsp;<b>STM32F10x
+         Medium-density Value line </b>and<b> XL-density&nbsp;devices</b>.&nbsp;</span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Add projects for <span style="font-weight: bold;">Atolic (TrueSTUDIO)</span> and <span style="font-weight: bold;">Hitex (HiTOP) </span>toolchains. <br></span></li><li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update with <span style="font-style: italic;">STM32F10x Standard Peripherals Library V3.3.0</span><br></span></li></ul>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V3.1.0 -
+    07/27/2009<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update to support the <b>STM32F10x
+         Connectivity Line devices</b>.&nbsp;</span><o:p></o:p></li>
+     <ul style="margin-top: 0in;" type="square">
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Add new workspace <i>STM3210C-EVAL</i>
+          for EWARM, RIDE and RVMDK preconfigured projects&nbsp;</span><o:p></o:p></li>
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">Update with <i>STM32F10x
+          Standard Peripherals Library V3.1.0</i>&nbsp;</span><o:p></o:p></li>
+     </ul>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">CMSIS: <i style="">system_stm32f10x.c</i> file updated to fix bug in <i style="">SetSysClockTo56()</i> function (Flash
+         wait state set to 1 instead of 2)</span><o:p></o:p></li>
+    </ul>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V3.0.0 - 04/27/2009<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">AN2557 "STM32F10xxx
+         in-application programming using the USART (IAP)" updated with</span><span style="font-size: 10pt; font-family: Verdana;">&nbsp;STM32F10x Standard Peripherals
+         Library (<b><i>StdPeriph_Lib</i></b>) V3.0.0</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">AN2557 "STM32F10xxx
+         in-application programming using the USART (IAP)"</span><span style="font-size: 10pt; font-family: Verdana;"> is full CMSIS compliant</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">STM32F10x Standard
+         Peripherals Library Structure is updated.</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Arial;">AN2557 "STM32F10xxx
+         in-application programming using the USART (IAP)"</span><span style="font-size: 10pt; font-family: Verdana;"> Package Architecture is
+         enhanced</span><o:p></o:p></li>
+    </ul>
+    <p class="MsoNormal"><span style="font-size: 10pt; font-family: Verdana; color: black;">For more details, please refer to <a href="http://www.st.com/mcu/familiesdocs-110.html" target="_blank">AN2953</a>
+    "How to migrate from the STM32F10xxx firmware library V2.0.3 to the
+    STM32F10xxx standard peripheral library V3.0.0".</span><o:p></o:p></p>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0.2 -
+    09/22/2008<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">ymodem.c source file
+         update: Ymodem_Receive() function<o:p></o:p></span></li>
+    </ul>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0.1 -
+    06/13/2008<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Remove the Firmware
+         License Agreement file&nbsp;&nbsp;&nbsp; &nbsp;<o:p></o:p></span></li>
+    </ul>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Update the source
+         file&#8217;s header to remove reference to the License<o:p></o:p></span></li>
+    </ul>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0 -
+    05/30/2008<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Update with STM32F10x
+         FWLib V2.0 to support the extra peripherals and features embedded in
+         the STM32 High-density devices<o:p></o:p></span></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Update to support up to
+         512KB of Flash memory programming in STM32&nbsp; High-density devices</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add support of STMicroelectronics
+         STM3210E-EVAL evaluation board (in addition to STM3210B-EVAL)</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add Firmware License
+         Agreement file</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">For more details about
+         this example implementation, please refer to the AN2557
+         "STM32F10xxx in-application programming using the USART (IAP)",
+         available for download from the ST microcontrollers website: <a href="http://www.st.com/stm32" target="_blank">www.st.com/stm32</a></span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Glossary<o:p></o:p></span></li>
+     <ul style="margin-top: 0in;" type="square">
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Medium-density devices
+          are STM32F101xx and STM32F103xx microcontrollers where the Flash
+          memory density ranges between 32 and 128 Kbytes.<o:p></o:p></span></li>
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">High-density devices are
+          STM32F101xx and STM32F103xx microcontrollers where the Flash memory
+          density ranges between 256 and 512 Kbytes.&nbsp;&nbsp;</span><o:p></o:p></li>
+     </ul>
+    </ul>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0 -
+    10/08/2007<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Updated with STM32F10x
+         FWLib V1.0&nbsp;&nbsp; <o:p></o:p></span></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add IAP project with RIDE
+         toolchain<o:p></o:p></span></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Add program example with
+         RIDE, EWARM and RVMDK toolchain for the binary image to be loaded with
+         the IAP&nbsp;</span><o:p></o:p></li>
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">stm32f10x_vector.s<o:p></o:p></span></li>
+     <ul style="margin-top: 0in;" type="square">
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span class="grame"><span style="font-size: 10pt; font-family: Verdana;">Change
+          "Stack_Size" value to 0x800</span></span><o:p></o:p></li>
+     </ul>
+    </ul>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">lnkarm_flash.xcl<o:p></o:p></span></li>
+     <ul style="margin-top: 0in;" type="square">
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span class="grame"><span style="font-size: 10pt; font-family: Verdana;">Change
+          "_CSTACK_SIZE" value to 0x800</span></span><o:p></o:p></li>
+     </ul>
+    </ul>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">common.c/main.c<o:p></o:p></span></li>
+     <ul style="margin-top: 0in;" type="square">
+      <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span class="grame"><span style="font-size: 10pt; font-family: Verdana;">Initialize
+          user application's Stack Pointer before jumping to user application</span></span><span style="font-size: 10pt; font-family: Verdana;">&nbsp;<o:p></o:p></span></li>
+     </ul>
+    </ul>
+    <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; margin-right: 558.05pt;"><span style="font-size: 10pt; font-family: Arial; color: white;">V0.1 -
+    05/21/2007<o:p></o:p></span></h3>
+    <ul style="margin-top: 0in;" type="square">
+     <li class="MsoNormal" style="color: black; margin-top: 4.5pt; margin-bottom: 4.5pt;"><span style="font-size: 10pt; font-family: Verdana;">Created.<o:p></o:p></span></li>
+    </ul>
+    <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"><a name="License"></a><span style="font-size: 12pt; color: white;">License<o:p></o:p></span></h2>
+    <p class="MsoNormal" style="margin: 4.5pt 0in;"><span style="font-size: 10pt; font-family: Verdana; color: black;">The enclosed firmware and all the related documentation are
+    not covered by a License Agreement, if you need such License you can
+    contact your local STMicroelectronics office.<u1:p></u1:p><o:p></o:p></span></p>
+    <p class="MsoNormal"><b><span style="font-size: 10pt; font-family: Verdana; color: black;">THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT
+    PROVIDING CUSTOMERS WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN
+    ORDER FOR THEM TO SAVE TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE
+    HELD LIABLE FOR ANY DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT
+    TO ANY CLAIMS ARISING FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE
+    BY CUSTOMERS OF THE CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH
+    THEIR PRODUCTS. <o:p></o:p></span></b></p>
+    <p class="MsoNormal"><span style="color: black;"><o:p>&nbsp;</o:p></span></p>
+    <div class="MsoNormal" style="text-align: center;" align="center"><span style="color: black;">
+    <hr align="center" size="2" width="100%">
+    </span></div>
+    <p class="MsoNormal" style="margin: 4.5pt 0in 4.5pt 0.25in; text-align: center;" align="center"><span style="font-size: 10pt; font-family: Verdana; color: black;">For Complete on </span><span style="font-size: 10pt; font-family: Verdana;">STM32(<span style="color: black;">CORTEX
+    M3) 32-Bit Microcontrollers visit </span><u><span style="color: blue;"><a href="http://www.st.com/stm32" target="_blank">www.st.com/STM32</a></span></u></span><span style="color: black;"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  <p class="MsoNormal"><span style="font-size: 10pt;"><o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table>
+
+</div>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,15 @@
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\library\debug.c
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/config.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/debug.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/ssl.h
+.\obj\debug.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/net.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/dhm.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/bignum.h
+.\obj\debug.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/rsa.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/md5.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/sha1.h
+.\obj\debug.o: ..\Libraries\tropicssl-tropicssl\include\tropicssl/x509.h
+.\obj\debug.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\obj\debug.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

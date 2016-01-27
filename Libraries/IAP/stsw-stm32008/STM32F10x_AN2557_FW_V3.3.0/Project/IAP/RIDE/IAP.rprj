@@ -1,0 +1,4 @@
+
+<Project Header="Project 'IAP'" Path=".\IAP.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="IAP" AsyncBuild="" >
+	<ApplicationBuild Header="IAP" Extern=".\IAP.rapp" Path=".\IAP.rapp" OutputFile=".\STM32100E-EVAL\IAP.elf" Config="STM32100E-EVAL" sate="98" AsyncBuild="" />
+</Project>
